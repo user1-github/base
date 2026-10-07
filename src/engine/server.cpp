@@ -1640,8 +1640,8 @@ void setlocations(const char *bin)
         const char *str = getenv("HOME");
         if(str && *str) formatstring(dir, "%s/Library/Application Support/%s", str, versionname);
 #else
-        const char *str = getenv("HOME");
-        if(str && *str) formatstring(dir, "%s/.%s", str, versionuname);
+        const char *str = getenv("XDG_DATA_HOME");
+        if(str && *str) formatstring(dir, "%s/%s", str, versionuname);
 #endif
         if(homedirappend && dir[0] && *versionbranch) appendhomedir(versionbranch);
     }
